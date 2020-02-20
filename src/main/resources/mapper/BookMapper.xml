@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghengwei.cms.dao.BookDao">
+ <insert id="insertBook">
+ insert into book values
+ <foreach collection="bookList" item="b" separator=",">
+ (0,#{b.id2},#{b.name},#{b.type},#{b.phone},#{b.author},#{b.like})
+ </foreach>
+ </insert>
+ 
+  <insert id="insertError">
+ insert into error values
+ <foreach collection="errorList" item="e" separator=",">
+ (#{e.eid},#{e.because})
+ </foreach>
+ </insert>
+</mapper>

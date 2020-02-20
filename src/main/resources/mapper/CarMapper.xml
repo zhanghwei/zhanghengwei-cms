@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhanghengwei.cms.dao.CarDao">
+  <insert id="insert">
+  insert into car values
+  <foreach collection="carList" item="c" separator=",">
+  (0,#{c.created},#{c.plate},#{c.type},#{c.lon},#{c.lat})
+  </foreach>
+  </insert>
+
+<select id="list" resultType="Car">
+select * from car
+<!-- <where>
+<if test="car.lon!=null">
+and lon =#{car.lon}
+</if>
+<if test="car.lat!=null">
+and lat =#{car.lat}
+</if> -->
+<!-- </where> -->
+
+</select>
+</mapper>
